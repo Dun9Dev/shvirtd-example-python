@@ -15,10 +15,10 @@ services:
       db:
         condition: service_healthy
     environment:
-      - MYSQL_HOST=db
-      - MYSQL_USER=web
-      - MYSQL_PASSWORD=web-secret
-      - MYSQL_DATABASE=example
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD} 
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}      
     networks:
       backend:
         ipv4_address: 172.20.0.5
@@ -27,6 +27,11 @@ services:
     image: mysql:8
     container_name: mysql-db
     restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD} 
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}         
     env_file:
       - .env
     networks:
