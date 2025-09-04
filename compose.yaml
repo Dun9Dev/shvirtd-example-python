@@ -27,11 +27,6 @@ services:
     image: mysql:8
     container_name: mysql-db
     restart: always
-    environment:
-      - MYSQL_ROOT_PASSWORD=root-secret
-      - MYSQL_DATABASE=example
-      - MYSQL_USER=web
-      - MYSQL_PASSWORD=web-secret
     env_file:
       - .env
     networks:
