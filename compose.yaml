@@ -4,7 +4,7 @@ include:
   - proxy.yaml
 
 services:
-    web:
+  web:
     build:
       context: .
       dockerfile: Dockerfile.python
@@ -23,7 +23,7 @@ services:
       backend:
         ipv4_address: 172.20.0.5
 
-    db:
+  db:
     image: mysql:8
     container_name: mysql-db
     restart: always
@@ -43,13 +43,3 @@ services:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot-secret"]
       timeout: 20s
       retries: 10
-
-networks:
-  backend:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 172.20.0.0/24
-
-volumes:
-  mysql_data:
