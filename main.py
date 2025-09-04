@@ -12,7 +12,7 @@ from typing import Optional
 db_host = os.environ.get('MYSQL_HOST', '127.0.0.1')
 db_user = os.environ.get('MYSQL_USER', 'web')
 db_password = os.environ.get('MYSQL_PASSWORD', 'web-secret')
-db_name = os.environ.get('DB_NAME', 'example')
+db_name = os.environ.get('MYSQL_DATABASE', 'example')
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
